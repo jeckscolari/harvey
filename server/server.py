@@ -89,7 +89,7 @@ def run():
 
 if __name__ == '__main__':
     sfty_window = 2 # safety window of 2 seconds
-    model_path = os.path.dirname(os.path.realpath(__file__)) + "/model.yaml"
+    model_path = sys.argv[1]
     with open(model_path, 'rt') as f:
         cfg = yaml.safe_load(f)
     assert cfg is not None

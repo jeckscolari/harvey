@@ -1,0 +1,1 @@
+main.ml: Algorithm Arg Filter_empty_tp Filter_rel Formula_lexer Formula_parser Lexing Log MFOTL Misc Perf Predicate Printf Rewriting Subproc Sys Unix

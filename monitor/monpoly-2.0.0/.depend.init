@@ -1,0 +1,60 @@
+mqueue.cmi :
+dllist.cmi :
+misc.cmi : mqueue.cmi dllist.cmi
+predicate.cmi :
+MFOTL.cmi : predicate.cmi
+perf.cmi : MFOTL.cmi
+tuple.cmi : predicate.cmi MFOTL.cmi
+relation.cmi : tuple.cmi predicate.cmi MFOTL.cmi
+table.cmi : relation.cmi predicate.cmi
+db.cmi : table.cmi predicate.cmi MFOTL.cmi
+rewriting.cmi : predicate.cmi MFOTL.cmi db.cmi
+filter_rel.cmi : tuple.cmi predicate.cmi MFOTL.cmi
+filter_empty_tp.cmi : MFOTL.cmi
+sliding.cmi : MFOTL.cmi
+log.cmi : MFOTL.cmi db.cmi
+algorithm.cmi : MFOTL.cmi
+mqueue.cmo : mqueue.cmi
+mqueue.cmx : mqueue.cmi
+dllist.cmo : dllist.cmi
+dllist.cmx : dllist.cmi
+misc.cmo : mqueue.cmi dllist.cmi misc.cmi
+misc.cmx : mqueue.cmx dllist.cmx misc.cmi
+predicate.cmo : misc.cmi predicate.cmi
+predicate.cmx : misc.cmx predicate.cmi
+MFOTL.cmo : predicate.cmi misc.cmi MFOTL.cmi
+MFOTL.cmx : predicate.cmx misc.cmx MFOTL.cmi
+perf.cmo : misc.cmi MFOTL.cmi perf.cmi
+perf.cmx : misc.cmx MFOTL.cmx perf.cmi
+tuple.cmo : predicate.cmi misc.cmi MFOTL.cmi tuple.cmi
+tuple.cmx : predicate.cmx misc.cmx MFOTL.cmx tuple.cmi
+relation.cmo : tuple.cmi predicate.cmi misc.cmi MFOTL.cmi relation.cmi
+relation.cmx : tuple.cmx predicate.cmx misc.cmx MFOTL.cmx relation.cmi
+table.cmo : relation.cmi predicate.cmi misc.cmi table.cmi
+table.cmx : relation.cmx predicate.cmx misc.cmx table.cmi
+db.cmo : table.cmi predicate.cmi MFOTL.cmi db.cmi
+db.cmx : table.cmx predicate.cmx MFOTL.cmx db.cmi
+rewriting.cmo : subproc.cmi predicate.cmi misc.cmi MFOTL.cmi db.cmi \
+    rewriting.cmi
+rewriting.cmx : subproc.cmx predicate.cmx misc.cmx MFOTL.cmx db.cmx \
+    rewriting.cmi
+filter_rel.cmo : tuple.cmi predicate.cmi misc.cmi MFOTL.cmi filter_rel.cmi
+filter_rel.cmx : tuple.cmx predicate.cmx misc.cmx MFOTL.cmx filter_rel.cmi
+filter_empty_tp.cmo : predicate.cmi misc.cmi MFOTL.cmi filter_empty_tp.cmi
+filter_empty_tp.cmx : predicate.cmx misc.cmx MFOTL.cmx filter_empty_tp.cmi
+sliding.cmo : misc.cmi MFOTL.cmi sliding.cmi
+sliding.cmx : misc.cmx MFOTL.cmx sliding.cmi
+log.cmo : predicate.cmi misc.cmi MFOTL.cmi filter_empty_tp.cmi db.cmi \
+    log.cmi
+log.cmx : predicate.cmx misc.cmx MFOTL.cmx filter_empty_tp.cmx db.cmx \
+    log.cmi
+algorithm.cmo : tuple.cmi table.cmi subproc.cmi sliding.cmi rewriting.cmi \
+    relation.cmi predicate.cmi perf.cmi mqueue.cmi misc.cmi MFOTL.cmi log.cmi \
+    dllist.cmi db.cmi algorithm.cmi
+algorithm.cmx : tuple.cmx table.cmx subproc.cmx sliding.cmx rewriting.cmx \
+    relation.cmx predicate.cmx perf.cmx mqueue.cmx misc.cmx MFOTL.cmx log.cmx \
+    dllist.cmx db.cmx algorithm.cmi
+main.cmo : subproc.cmi rewriting.cmi predicate.cmi perf.cmi misc.cmi \
+    MFOTL.cmi log.cmi filter_rel.cmi filter_empty_tp.cmi algorithm.cmi
+main.cmx : subproc.cmx rewriting.cmx predicate.cmx perf.cmx misc.cmx \
+    MFOTL.cmx log.cmx filter_rel.cmx filter_empty_tp.cmx algorithm.cmx

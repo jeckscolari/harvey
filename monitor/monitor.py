@@ -47,7 +47,7 @@ def run(formula, negate=False):
     with open(dir_path + "/files" + exec_id + '.log', 'w+') as log_file:
         log_file.write('\n')
 
-    monitor = os.path.dirname(os.path.realpath(__file__)) + '/monpoly-2.0.0/monpoly'
+    monitor = os.path.dirname(os.path.realpath(__file__)) + '/monpoly-2.0.0/main.native'
     args = [monitor, '-sig', dir_path + "/" + exec_id + '.sig'
             ,'-formula', dir_path + "/" + exec_id + '.mfotl'
             ,'-log', dir_path + "/" + exec_id + '.log'
@@ -55,19 +55,22 @@ def run(formula, negate=False):
 
     subprocess.call(args)
 
-
-if __name__ == '__main__':
-    formula_path = sys.argv[1]
-
-    with open(formula_path, 'r') as fp:
-        bg_formula = fp.readline()
+def start(bg_formula):
 
     with open(dir_path + '/.formula.bg', 'w+') as f_file:
         f_file.write(bg_formula)
 
     exec_id = 'harvey' + str(round(datetime.now().timestamp() * 1000))
 
-
     print("Monitoring formula:\n\n\t" + bg_formula + "\n" )
 
     run(bg_formula, negate=False)
+
+
+if __name__ == '__main__':
+    formula_path = sys.argv[1]
+
+    with open(formula_path, 'r') as fp:
+        bg_formula = fp.readline()
+    
+    start(bg_formula)

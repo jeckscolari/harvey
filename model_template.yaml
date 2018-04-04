@@ -1,0 +1,6 @@
+model: Put your CPS model here
+
+reactions: List your reactions here to make your model dynamic
+  - reaction: This is a reaction
+      name: Must be unique
+      formula: Express dynamic behavior here
